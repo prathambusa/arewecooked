@@ -149,10 +149,10 @@ class APIService {
         let monthStart        = cal.date(from: cal.dateComponents([.year, .month], from: now))!
 
         async let yesterdayCost  = anthropicCost(apiKey: apiKey, from: yesterdayMidnight, to: todayMidnight)
-        async let monthCost      = anthropicCost(apiKey: apiKey, from: monthStart, to: todayMidnight)
+        async let monthCost      = anthropicCost(apiKey: apiKey, from: monthStart, to: now)
         async let usage          = anthropicUsage(apiKey: apiKey, from: yesterdayMidnight, to: todayMidnight)
         async let sevenDay       = anthropicSevenDay(apiKey: apiKey, from: sevenDaysAgo, to: todayMidnight)
-        async let models         = anthropicModels(apiKey: apiKey, from: monthStart, to: todayMidnight)
+        async let models         = anthropicModels(apiKey: apiKey, from: monthStart, to: now)
 
         let (td, md, tu) = try await (yesterdayCost, monthCost, usage)
         let sd = await sevenDay
@@ -236,10 +236,10 @@ class APIService {
         let monthStart        = cal.date(from: cal.dateComponents([.year, .month], from: now))!
 
         async let yesterdayCost = openaiCost(apiKey: apiKey, from: yesterdayMidnight, to: todayMidnight)
-        async let monthCost     = openaiCost(apiKey: apiKey, from: monthStart, to: todayMidnight)
+        async let monthCost     = openaiCost(apiKey: apiKey, from: monthStart, to: now)
         async let usage         = openaiUsage(apiKey: apiKey, from: yesterdayMidnight, to: todayMidnight)
         async let sevenDay      = openaiSevenDay(apiKey: apiKey, from: sevenDaysAgo, to: todayMidnight)
-        async let models        = openaiModels(apiKey: apiKey, from: monthStart, to: todayMidnight)
+        async let models        = openaiModels(apiKey: apiKey, from: monthStart, to: now)
 
         let (td, md, tu) = try await (yesterdayCost, monthCost, usage)
         let sd = await sevenDay
