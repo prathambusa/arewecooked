@@ -23,7 +23,8 @@ targets:
       - path: AreWeCooked/Sources
       - path: Shared
     resources:
-      - path: AreWeCooked/Resources
+      - path: AreWeCooked/Resources/AppIcon.icns
+      - path: AreWeCooked/Resources/Assets.xcassets
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.prathambusa.AreWeCooked
