@@ -1,0 +1,617 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00E77CE197FFA17EF029D997 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE36B1AA3F005D486AD7878 /* Provider.swift */; };
+		07FCDA54D74D5342C73B8056 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6343BC4D3168168CA8563F6 /* KeychainManager.swift */; };
+		1F332EF0F378314B5F1403AF /* UsageSummaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D6829A899E4A20CA8BD649 /* UsageSummaryTests.swift */; };
+		21FABE0D4E38FA85F12F8124 /* TimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAEB4420D0699437E276561 /* TimelineProvider.swift */; };
+		36578E1D536E2C60A2B64FB5 /* AreWeCookedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC68AD0B7A48ADC7852809A /* AreWeCookedApp.swift */; };
+		407B1C7A905DA4D47C7C2512 /* KeychainManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04CC9EC47BC5E72146F523D /* KeychainManagerTests.swift */; };
+		40C18426C24D3DB4985625B0 /* DesktopWidgetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B9A8D6B432A4E6D43A4B8 /* DesktopWidgetController.swift */; };
+		627005A4600B89098F84D02C /* SharedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB76BFA7D2CA8F0D453CCCF /* SharedModels.swift */; };
+		9DFDE0F71CA0AEA8A6550E94 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 180934131C5B50842D5A5BA6 /* WidgetKit.framework */; };
+		9E78FC1D735BA674BC3F3B50 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7E4C2FA7525483E0D6063 /* APIService.swift */; };
+		A7BBA2771576DFB5FACE4214 /* WidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E327F4B178D6A17FA3304F82 /* WidgetViews.swift */; };
+		AC7C5A7B07C621535AB0D916 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE517FD1667C51F9649AF2 /* SettingsView.swift */; };
+		BA0B88F2D19BD7F0520CC109 /* AreWeCookedWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9CECB1BA2E2ABC39373872AD /* AreWeCookedWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C956BC0E43DE397051E7D295 /* AreWeCookedWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E58C707D92242AED5CBDD09 /* AreWeCookedWidgetBundle.swift */; };
+		D3833F9D3052D0A552432F7B /* SharedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB76BFA7D2CA8F0D453CCCF /* SharedModels.swift */; };
+		D951E73EF8A80B28F0437F53 /* SharedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB76BFA7D2CA8F0D453CCCF /* SharedModels.swift */; };
+		DF4038FF88853C1A5CEEE35D /* DateRangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A900CD7DD11A2E630BB5DEE /* DateRangeTests.swift */; };
+		EA522E8532E4B21028F793B0 /* DesktopWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95251484C2F8996A54E2A8C /* DesktopWidgetView.swift */; };
+		F978FC5792876B33ECBC2F72 /* FormattingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3AEF699064EB4790CD9CCC /* FormattingTests.swift */; };
+		F98D41C6BB6F833EC275A301 /* WidgetAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC91643FAF6576CA14F5D47 /* WidgetAPIService.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		699597F487988CFC1558E20C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 09C723DEB3A9B2404B4547C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A713C35A90B47E5B04C69E77;
+			remoteInfo = AreWeCookedWidget;
+		};
+		AF068B845AA7F93F31B57D83 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 09C723DEB3A9B2404B4547C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F5E714877115B06AAE87F9D4;
+			remoteInfo = AreWeCooked;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E9A5C5874B7E1E93EFBF56A3 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				BA0B88F2D19BD7F0520CC109 /* AreWeCookedWidget.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		04D6829A899E4A20CA8BD649 /* UsageSummaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageSummaryTests.swift; sourceTree = "<group>"; };
+		180934131C5B50842D5A5BA6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		272150342992527771E09DF0 /* AreWeCooked.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AreWeCooked.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CFE517FD1667C51F9649AF2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		4E58C707D92242AED5CBDD09 /* AreWeCookedWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreWeCookedWidgetBundle.swift; sourceTree = "<group>"; };
+		4EE36B1AA3F005D486AD7878 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		5AC91643FAF6576CA14F5D47 /* WidgetAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAPIService.swift; sourceTree = "<group>"; };
+		7FC68AD0B7A48ADC7852809A /* AreWeCookedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreWeCookedApp.swift; sourceTree = "<group>"; };
+		8A900CD7DD11A2E630BB5DEE /* DateRangeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRangeTests.swift; sourceTree = "<group>"; };
+		94A7E4C2FA7525483E0D6063 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		9CECB1BA2E2ABC39373872AD /* AreWeCookedWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AreWeCookedWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFFD8FD3C20538BAA13E900B /* AreWeCookedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AreWeCookedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFAEB4420D0699437E276561 /* TimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineProvider.swift; sourceTree = "<group>"; };
+		D04CC9EC47BC5E72146F523D /* KeychainManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManagerTests.swift; sourceTree = "<group>"; };
+		E327F4B178D6A17FA3304F82 /* WidgetViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViews.swift; sourceTree = "<group>"; };
+		E6343BC4D3168168CA8563F6 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		EB2B9A8D6B432A4E6D43A4B8 /* DesktopWidgetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopWidgetController.swift; sourceTree = "<group>"; };
+		F95251484C2F8996A54E2A8C /* DesktopWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopWidgetView.swift; sourceTree = "<group>"; };
+		FAB76BFA7D2CA8F0D453CCCF /* SharedModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedModels.swift; sourceTree = "<group>"; };
+		FD3AEF699064EB4790CD9CCC /* FormattingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattingTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3C56A8CF2826352BB1E095FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DFDE0F71CA0AEA8A6550E94 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		189A23B7B62738B5FC4901C3 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				4E58C707D92242AED5CBDD09 /* AreWeCookedWidgetBundle.swift */,
+				CFAEB4420D0699437E276561 /* TimelineProvider.swift */,
+				5AC91643FAF6576CA14F5D47 /* WidgetAPIService.swift */,
+				E327F4B178D6A17FA3304F82 /* WidgetViews.swift */,
+			);
+			name = Sources;
+			path = AreWeCookedWidget/Sources;
+			sourceTree = "<group>";
+		};
+		27FC5F718CEB9EE66B10752B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				272150342992527771E09DF0 /* AreWeCooked.app */,
+				BFFD8FD3C20538BAA13E900B /* AreWeCookedTests.xctest */,
+				9CECB1BA2E2ABC39373872AD /* AreWeCookedWidget.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		755498A7A55AC117D548E278 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				FAB76BFA7D2CA8F0D453CCCF /* SharedModels.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		777896DA1F1FBE344E3818F4 /* AreWeCookedTests */ = {
+			isa = PBXGroup;
+			children = (
+				8A900CD7DD11A2E630BB5DEE /* DateRangeTests.swift */,
+				FD3AEF699064EB4790CD9CCC /* FormattingTests.swift */,
+				D04CC9EC47BC5E72146F523D /* KeychainManagerTests.swift */,
+				04D6829A899E4A20CA8BD649 /* UsageSummaryTests.swift */,
+			);
+			path = AreWeCookedTests;
+			sourceTree = "<group>";
+		};
+		88BF07A3CA9E0C9B18E1D05A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				180934131C5B50842D5A5BA6 /* WidgetKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF6F71E04321A50585DB4A56 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				94A7E4C2FA7525483E0D6063 /* APIService.swift */,
+				7FC68AD0B7A48ADC7852809A /* AreWeCookedApp.swift */,
+				EB2B9A8D6B432A4E6D43A4B8 /* DesktopWidgetController.swift */,
+				F95251484C2F8996A54E2A8C /* DesktopWidgetView.swift */,
+				E6343BC4D3168168CA8563F6 /* KeychainManager.swift */,
+				4EE36B1AA3F005D486AD7878 /* Provider.swift */,
+				2CFE517FD1667C51F9649AF2 /* SettingsView.swift */,
+			);
+			name = Sources;
+			path = AreWeCooked/Sources;
+			sourceTree = "<group>";
+		};
+		EC91C3AC20AFB5E3CD1E75A8 = {
+			isa = PBXGroup;
+			children = (
+				777896DA1F1FBE344E3818F4 /* AreWeCookedTests */,
+				755498A7A55AC117D548E278 /* Shared */,
+				BF6F71E04321A50585DB4A56 /* Sources */,
+				189A23B7B62738B5FC4901C3 /* Sources */,
+				88BF07A3CA9E0C9B18E1D05A /* Frameworks */,
+				27FC5F718CEB9EE66B10752B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7B932F8377EE6157ABF216F9 /* AreWeCookedTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F512263589578B87A273D79A /* Build configuration list for PBXNativeTarget "AreWeCookedTests" */;
+			buildPhases = (
+				603B069F8DFEB7A8267BE532 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C7596FCB58F8CBCC55B69713 /* PBXTargetDependency */,
+			);
+			name = AreWeCookedTests;
+			packageProductDependencies = (
+			);
+			productName = AreWeCookedTests;
+			productReference = BFFD8FD3C20538BAA13E900B /* AreWeCookedTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A713C35A90B47E5B04C69E77 /* AreWeCookedWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85D8B1AFC1492B65673C4713 /* Build configuration list for PBXNativeTarget "AreWeCookedWidget" */;
+			buildPhases = (
+				CD947BF0F4DE64AB265ECFAC /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AreWeCookedWidget;
+			packageProductDependencies = (
+			);
+			productName = AreWeCookedWidget;
+			productReference = 9CECB1BA2E2ABC39373872AD /* AreWeCookedWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		F5E714877115B06AAE87F9D4 /* AreWeCooked */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A64F07AD10815088482A752F /* Build configuration list for PBXNativeTarget "AreWeCooked" */;
+			buildPhases = (
+				F216674F54D80A732DC61E05 /* Sources */,
+				3C56A8CF2826352BB1E095FD /* Frameworks */,
+				E9A5C5874B7E1E93EFBF56A3 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EFC40EBBF5C08596BA6B46B7 /* PBXTargetDependency */,
+			);
+			name = AreWeCooked;
+			packageProductDependencies = (
+			);
+			productName = AreWeCooked;
+			productReference = 272150342992527771E09DF0 /* AreWeCooked.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		09C723DEB3A9B2404B4547C9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					7B932F8377EE6157ABF216F9 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
+					A713C35A90B47E5B04C69E77 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
+					F5E714877115B06AAE87F9D4 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = BD84FB7459D87EEF60653642 /* Build configuration list for PBXProject "AreWeCooked" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = EC91C3AC20AFB5E3CD1E75A8;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 27FC5F718CEB9EE66B10752B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F5E714877115B06AAE87F9D4 /* AreWeCooked */,
+				A713C35A90B47E5B04C69E77 /* AreWeCookedWidget */,
+				7B932F8377EE6157ABF216F9 /* AreWeCookedTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		603B069F8DFEB7A8267BE532 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF4038FF88853C1A5CEEE35D /* DateRangeTests.swift in Sources */,
+				F978FC5792876B33ECBC2F72 /* FormattingTests.swift in Sources */,
+				407B1C7A905DA4D47C7C2512 /* KeychainManagerTests.swift in Sources */,
+				627005A4600B89098F84D02C /* SharedModels.swift in Sources */,
+				1F332EF0F378314B5F1403AF /* UsageSummaryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD947BF0F4DE64AB265ECFAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C956BC0E43DE397051E7D295 /* AreWeCookedWidgetBundle.swift in Sources */,
+				D3833F9D3052D0A552432F7B /* SharedModels.swift in Sources */,
+				21FABE0D4E38FA85F12F8124 /* TimelineProvider.swift in Sources */,
+				F98D41C6BB6F833EC275A301 /* WidgetAPIService.swift in Sources */,
+				A7BBA2771576DFB5FACE4214 /* WidgetViews.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F216674F54D80A732DC61E05 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E78FC1D735BA674BC3F3B50 /* APIService.swift in Sources */,
+				36578E1D536E2C60A2B64FB5 /* AreWeCookedApp.swift in Sources */,
+				40C18426C24D3DB4985625B0 /* DesktopWidgetController.swift in Sources */,
+				EA522E8532E4B21028F793B0 /* DesktopWidgetView.swift in Sources */,
+				07FCDA54D74D5342C73B8056 /* KeychainManager.swift in Sources */,
+				00E77CE197FFA17EF029D997 /* Provider.swift in Sources */,
+				AC7C5A7B07C621535AB0D916 /* SettingsView.swift in Sources */,
+				D951E73EF8A80B28F0437F53 /* SharedModels.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C7596FCB58F8CBCC55B69713 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F5E714877115B06AAE87F9D4 /* AreWeCooked */;
+			targetProxy = AF068B845AA7F93F31B57D83 /* PBXContainerItemProxy */;
+		};
+		EFC40EBBF5C08596BA6B46B7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A713C35A90B47E5B04C69E77 /* AreWeCookedWidget */;
+			targetProxy = 699597F487988CFC1558E20C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0FA03C51BA09B0884D778DA8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		119B1CFDF2D68743D28745A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.prathambusa.AreWeCookedTests;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AreWeCooked.app/Contents/MacOS/AreWeCooked";
+			};
+			name = Debug;
+		};
+		261278F51CE33DD616D9C1BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGNING_ALLOWED = YES;
+				CODE_SIGNING_REQUIRED = YES;
+				CODE_SIGN_ENTITLEMENTS = AreWeCooked/AreWeCooked.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = AreWeCooked/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.prathambusa.AreWeCooked;
+				PRODUCT_NAME = AreWeCooked;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		315411AC6CF6DDC4B3E5D030 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = YES;
+				CODE_SIGNING_REQUIRED = YES;
+				CODE_SIGN_ENTITLEMENTS = AreWeCookedWidget/AreWeCookedWidget.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = AreWeCookedWidget/Resources/Info.plist;
+				INFOPLIST_KEY_NSExtension_NSExtensionPointIdentifier = "com.apple.widgetkit-extension";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.prathambusa.AreWeCooked.widget;
+				PRODUCT_NAME = AreWeCookedWidget;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		459DCE0114182DA591E4D6A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.prathambusa.AreWeCookedTests;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AreWeCooked.app/Contents/MacOS/AreWeCooked";
+			};
+			name = Release;
+		};
+		4F6A09FDA5A93C7514956FAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = YES;
+				CODE_SIGNING_REQUIRED = YES;
+				CODE_SIGN_ENTITLEMENTS = AreWeCookedWidget/AreWeCookedWidget.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = AreWeCookedWidget/Resources/Info.plist;
+				INFOPLIST_KEY_NSExtension_NSExtensionPointIdentifier = "com.apple.widgetkit-extension";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.prathambusa.AreWeCooked.widget;
+				PRODUCT_NAME = AreWeCookedWidget;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A8AEACF1E5C90978C911FEB3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGNING_ALLOWED = YES;
+				CODE_SIGNING_REQUIRED = YES;
+				CODE_SIGN_ENTITLEMENTS = AreWeCooked/AreWeCooked.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = AreWeCooked/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.prathambusa.AreWeCooked;
+				PRODUCT_NAME = AreWeCooked;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		F33226564C364FFCFDDADDFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		85D8B1AFC1492B65673C4713 /* Build configuration list for PBXNativeTarget "AreWeCookedWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F6A09FDA5A93C7514956FAC /* Debug */,
+				315411AC6CF6DDC4B3E5D030 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A64F07AD10815088482A752F /* Build configuration list for PBXNativeTarget "AreWeCooked" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				261278F51CE33DD616D9C1BC /* Debug */,
+				A8AEACF1E5C90978C911FEB3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		BD84FB7459D87EEF60653642 /* Build configuration list for PBXProject "AreWeCooked" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0FA03C51BA09B0884D778DA8 /* Debug */,
+				F33226564C364FFCFDDADDFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F512263589578B87A273D79A /* Build configuration list for PBXNativeTarget "AreWeCookedTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				119B1CFDF2D68743D28745A4 /* Debug */,
+				459DCE0114182DA591E4D6A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 09C723DEB3A9B2404B4547C9 /* Project object */;
+}
