@@ -165,13 +165,27 @@ class APIService {
     }
 
     private func anthropicCost(apiKey: String, from: Date, to: Date) async throws -> Double {
+        let buckets = try await anthropicCostBuckets(apiKey: apiKey, from: from, to: to)
+        return buckets.flatMap(\.results).reduce(0) { $0 + (Double($1.amount) ?? 0) }
+    }
+
+    private func anthropicCostBuckets(apiKey: String, from: Date, to: Date, extraItems: [URLQueryItem] = []) async throws -> [CostReport.Bucket] {
         let fmt = isoFormatter()
-        var c = URLComponents(string: "https://api.anthropic.com/v1/organizations/cost_report")!
-        c.queryItems = [item("starting_at", fmt.string(from: from)),
-                        item("ending_at",   fmt.string(from: to)),
-                        item("bucket_width","1d")]
-        let r: CostReport = try await anthropicFetch(url: c.url!, apiKey: apiKey)
-        return r.data.flatMap(\.results).reduce(0) { $0 + (Double($1.amount) ?? 0) }
+        var all: [CostReport.Bucket] = []
+        var currentFrom = from
+        repeat {
+            var c = URLComponents(string: "https://api.anthropic.com/v1/organizations/cost_report")!
+            c.queryItems = [item("starting_at", fmt.string(from: currentFrom)),
+                            item("ending_at",   fmt.string(from: to)),
+                            item("bucket_width","1d"),
+                            item("limit",       "100")] + extraItems
+            let r: CostReport = try await anthropicFetch(url: c.url!, apiKey: apiKey)
+            all.append(contentsOf: r.data)
+            guard r.hasMore == true,
+                  let lastEnd = r.data.last.flatMap({ fmt.date(from: $0.endingAt) }) else { break }
+            currentFrom = lastEnd
+        } while true
+        return all
     }
 
     private func anthropicUsage(apiKey: String, from: Date, to: Date) async throws -> (input: Int, output: Int, cacheRead: Int) {
@@ -191,13 +205,8 @@ class APIService {
         return r
     }
     private func _anthropicSevenDay(apiKey: String, from: Date, to: Date) async throws -> [Double] {
-        let fmt = isoFormatter()
-        var c = URLComponents(string: "https://api.anthropic.com/v1/organizations/cost_report")!
-        c.queryItems = [item("starting_at", fmt.string(from: from)),
-                        item("ending_at",   fmt.string(from: to)),
-                        item("bucket_width","1d")]
-        let r: CostReport = try await anthropicFetch(url: c.url!, apiKey: apiKey)
-        return r.data.map { $0.results.reduce(0) { $0 + (Double($1.amount) ?? 0) } }
+        let buckets = try await anthropicCostBuckets(apiKey: apiKey, from: from, to: to)
+        return buckets.map { $0.results.reduce(0) { $0 + (Double($1.amount) ?? 0) } }
     }
 
     private func anthropicModels(apiKey: String, from: Date, to: Date) async -> [ModelCost] {
@@ -205,15 +214,9 @@ class APIService {
         return r
     }
     private func _anthropicModels(apiKey: String, from: Date, to: Date) async throws -> [ModelCost] {
-        let fmt = isoFormatter()
-        var c = URLComponents(string: "https://api.anthropic.com/v1/organizations/cost_report")!
-        c.queryItems = [item("starting_at", fmt.string(from: from)),
-                        item("ending_at",   fmt.string(from: to)),
-                        item("bucket_width","1d"),
-                        item("group_by[]",  "description")]
-        let r: CostReport = try await anthropicFetch(url: c.url!, apiKey: apiKey)
+        let buckets = try await anthropicCostBuckets(apiKey: apiKey, from: from, to: to, extraItems: [item("group_by[]", "description")])
         var totals: [String: Double] = [:]
-        for b in r.data { for res in b.results { totals[res.model ?? "unknown", default: 0] += Double(res.amount) ?? 0 } }
+        for b in buckets { for res in b.results { totals[res.model ?? "unknown", default: 0] += Double(res.amount) ?? 0 } }
         return totals.map { ModelCost(model: $0.key, cents: $0.value) }.filter { $0.cents > 0 }.sorted { $0.cents > $1.cents }
     }
 
