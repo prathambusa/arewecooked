@@ -18,17 +18,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var settingsWindow: NSWindow?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-        // Menu bar icon
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         if let button = statusItem?.button {
             button.image = NSImage(systemSymbolName: "dollarsign.circle.fill", accessibilityDescription: "Are We Cooked?")
             button.image?.isTemplate = true
-            button.action = #selector(openSettings)
-            button.target = self
         }
 
-        // Show floating desktop widget
+        let menu = NSMenu()
+        menu.addItem(NSMenuItem(title: "Open Settings", action: #selector(openSettings), keyEquivalent: ","))
+        menu.addItem(NSMenuItem(title: "Refresh Now", action: #selector(refreshNow), keyEquivalent: "r"))
+        menu.addItem(.separator())
+        menu.addItem(NSMenuItem(title: "Quit Are We Cooked?", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
+        statusItem?.menu = menu
+
         DesktopWidgetController.shared.show()
+    }
+
+    @objc func refreshNow() {
+        DesktopWidgetController.shared.refresh()
     }
 
     @objc func openSettings() {
