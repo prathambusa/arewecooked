@@ -177,8 +177,7 @@ class APIService {
             var c = URLComponents(string: "https://api.anthropic.com/v1/organizations/cost_report")!
             c.queryItems = [item("starting_at", fmt.string(from: currentFrom)),
                             item("ending_at",   fmt.string(from: to)),
-                            item("bucket_width","1d"),
-                            item("limit",       "100")] + extraItems
+                            item("bucket_width","1d")] + extraItems
             let r: CostReport = try await anthropicFetch(url: c.url!, apiKey: apiKey)
             all.append(contentsOf: r.data)
             guard r.hasMore == true,
