@@ -24,7 +24,8 @@ struct CostReport: Codable {
     }
     let data: [Bucket]
     let hasMore: Bool?
-    enum CodingKeys: String, CodingKey { case data; case hasMore = "has_more" }
+    let nextPage: String?
+    enum CodingKeys: String, CodingKey { case data; case hasMore = "has_more"; case nextPage = "next_page" }
 }
 
 struct UsageReport: Codable {
@@ -172,17 +173,19 @@ class APIService {
     private func anthropicCostBuckets(apiKey: String, from: Date, to: Date, extraItems: [URLQueryItem] = []) async throws -> [CostReport.Bucket] {
         let fmt = isoFormatter()
         var all: [CostReport.Bucket] = []
-        var currentFrom = from
+        var cursor: String? = nil
         repeat {
             var c = URLComponents(string: "https://api.anthropic.com/v1/organizations/cost_report")!
-            c.queryItems = [item("starting_at", fmt.string(from: currentFrom)),
-                            item("ending_at",   fmt.string(from: to)),
-                            item("bucket_width","1d")] + extraItems
+            var items = [item("starting_at", fmt.string(from: from)),
+                         item("ending_at",   fmt.string(from: to)),
+                         item("bucket_width","1d"),
+                         item("limit",       "31")] + extraItems
+            if let cur = cursor { items.append(item("page", cur)) }
+            c.queryItems = items
             let r: CostReport = try await anthropicFetch(url: c.url!, apiKey: apiKey)
             all.append(contentsOf: r.data)
-            guard r.hasMore == true,
-                  let lastEnd = r.data.last.flatMap({ fmt.date(from: $0.endingAt) }) else { break }
-            currentFrom = lastEnd
+            guard r.hasMore == true, let next = r.nextPage else { break }
+            cursor = next
         } while true
         return all
     }
@@ -319,9 +322,18 @@ class APIService {
 
     private func isoFormatter() -> ISO8601DateFormatter {
         let f = ISO8601DateFormatter()
-        f.formatOptions = [.withInternetDateTime]
+        f.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
         f.timeZone = TimeZone(identifier: "UTC")!
         return f
+    }
+
+    private func parseDate(_ s: String) -> Date? {
+        let withFrac = ISO8601DateFormatter()
+        withFrac.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        if let d = withFrac.date(from: s) { return d }
+        let plain = ISO8601DateFormatter()
+        plain.formatOptions = [.withInternetDateTime]
+        return plain.date(from: s)
     }
 
     private func item(_ name: String, _ value: String) -> URLQueryItem {
