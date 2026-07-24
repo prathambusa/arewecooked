@@ -218,7 +218,10 @@ class APIService {
     private func _anthropicModels(apiKey: String, from: Date, to: Date) async throws -> [ModelCost] {
         let buckets = try await anthropicCostBuckets(apiKey: apiKey, from: from, to: to, extraItems: [item("group_by[]", "description")])
         var totals: [String: Double] = [:]
-        for b in buckets { for res in b.results { totals[res.model ?? "unknown", default: 0] += Double(res.amount) ?? 0 } }
+        for b in buckets { for res in b.results {
+            guard let model = res.model else { continue }
+            totals[model, default: 0] += Double(res.amount) ?? 0
+        } }
         return totals.map { ModelCost(model: $0.key, cents: $0.value) }.filter { $0.cents > 0 }.sorted { $0.cents > $1.cents }
     }
 
